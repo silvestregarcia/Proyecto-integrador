@@ -4,6 +4,7 @@
 #include <string>
 
 #include "Video.h"
+#include "Serie.h"
 
 using namespace std;
 

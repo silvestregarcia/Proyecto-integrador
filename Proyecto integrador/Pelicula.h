@@ -20,6 +20,7 @@ public:
     string getId();
     double getCalificacion();
     void mostrar();
+    friend ostream &operator<<(ostream &os, vector<Video *> videos);
 };
 //##### CONSTRUCTORES #####
 
@@ -56,4 +57,7 @@ void Pelicula::mostrar()
     cout << "Calificación: " << calificacion << endl;
     cout << endl;
 }
+
+// ---- Operador ---- //
+
 #endif

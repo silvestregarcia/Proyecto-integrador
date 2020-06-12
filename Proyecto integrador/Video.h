@@ -28,6 +28,9 @@ public:
     virtual string getGenero();
     virtual double getCalificacion();
 
+    bool operator>=(double rangInf);
+    bool operator<=(double rangSup);
+
     virtual void mostrar();
 };
 //----Constructor----//
@@ -84,5 +87,14 @@ double Video::getCalificacion()
 //----Mostrar----
 void Video::mostrar()
 {
+}
+// ---- Operadores ---- //
+bool Video::operator>=(double rangInf)
+{
+    if (this->calificacion >= rangInf)
+    {
+        return true;
+    }
+    return false;
 }
 #endif
