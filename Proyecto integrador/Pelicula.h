@@ -16,6 +16,8 @@ public:
     Pelicula();
     Pelicula(string id, string nombre, string duracion, string genero, double calificacion);
 
+    void setCalificacion(double calificacion);
+    string getId();
     double getCalificacion();
     void mostrar();
 };
@@ -29,8 +31,16 @@ Pelicula::Pelicula(string id, string nombre, string duracion, string genero, dou
     this->genero = genero;
     this->calificacion = calificacion;
 }
-
+// ---- Set ---- //
+void Pelicula::setCalificacion(double calificacion)
+{
+    this->calificacion = calificacion;
+}
 // ----- Get ----- //
+string Pelicula::getId()
+{
+    return id;
+}
 double Pelicula::getCalificacion()
 {
     return calificacion;
@@ -39,6 +49,7 @@ double Pelicula::getCalificacion()
 // -----Metodos------ //
 void Pelicula::mostrar()
 {
+    cout << "Id: " << id << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Género: " << genero << endl;
     cout << "Duración: " << duracion << endl;

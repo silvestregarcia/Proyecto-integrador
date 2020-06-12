@@ -19,6 +19,7 @@ public:
     Serie();
     Serie(string id, string nombre, string genero, int temporadas);
 
+    string getId();
     string getGenero();
     void mostrar();
 };
@@ -40,6 +41,10 @@ Serie::Serie(string id, string nombre, string genero, int temporadas)
 }
 
 // ---- Get ---- //
+string Serie::getId()
+{
+    return id;
+}
 string Serie::getGenero()
 {
     return genero;
@@ -47,6 +52,7 @@ string Serie::getGenero()
 // ---- Mostrar ---- //
 void Serie::mostrar()
 {
+    cout << "Id Serie: " << id << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Género: " << genero << endl;
     cout << "Temporadas: " << temporadas << endl;

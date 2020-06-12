@@ -17,6 +17,9 @@ public:
     Episodio();
     Episodio(string id, string idEp, string nombre, string duracion, double calificacion, int temporada);
 
+    void setGenero(string genero);
+    void setCalificacion(double calificacion);
+    string getIdSerie();
     double getCalificacion();
     void mostrar();
 };
@@ -28,7 +31,7 @@ Episodio::Episodio()
     temporada = 0;
     calificacion = 0;
 }
-//----Constructor----
+//----Constructor---- //
 Episodio::Episodio(string id, string idEp, string nombre, string duracion, double calificacion, int temporada) : Video(id, nombre, duracion, genero, calificacion)
 {
     this->id = id;
@@ -40,7 +43,21 @@ Episodio::Episodio(string id, string idEp, string nombre, string duracion, doubl
     this->temporada = temporada;
 }
 // ----- Metodos ----- //
+// ---- Set ---- //
+void Episodio::setCalificacion(double calificacion)
+{
+    this->calificacion = calificacion;
+}
+void Episodio::setGenero(string genero)
+{
+    this->genero = genero;
+}
 // ---- Get ---- //
+string Episodio::getIdSerie()
+{
+    return id;
+}
+
 double Episodio::getCalificacion()
 {
     return calificacion;
@@ -48,9 +65,11 @@ double Episodio::getCalificacion()
 // ---- Mostrar ----- //
 void Episodio::mostrar()
 {
+    cout << "Id episodio: " << idEp << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Duración: " << duracion << endl;
     cout << "Calificación: " << calificacion << endl;
+    cout << "Genero de la serie: " << genero << endl;
     cout << "Temporada: " << temporada << endl;
     cout << endl;
 }

@@ -19,6 +19,8 @@ public:
     Video();
     Video(string id, string nombre, string duracion, string genero, double calificacion);
 
+    void setCalificacion(double calificacion);
+    void setGenero(string genero);
     virtual string getTipo();
     virtual string getId();
     virtual string getNombre();
@@ -28,7 +30,7 @@ public:
 
     virtual void mostrar();
 };
-//----Constructor----
+//----Constructor----//
 Video::Video()
 {
     id = "";
@@ -45,7 +47,16 @@ Video::Video(string id, string nombre, string duracion, string genero, double ca
     this->genero = genero;
     this->calificacion = calificacion;
 }
-//----Get----
+// ---- Set ---- //
+void Video::setCalificacion(double calificacion)
+{
+    this->calificacion = calificacion;
+}
+void Video::setGenero(string genero)
+{
+    this->genero = genero;
+}
+//----Get----//
 string Video::getId()
 {
     return id;
