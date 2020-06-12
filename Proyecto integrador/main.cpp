@@ -178,13 +178,15 @@ string videosCalif(vector<Video *> videos, vector<Serie *> series, string genero
     cin >> rangInf;
     cout << "Ingrese el rango superior: ";
     cin >> rangSup;
+    cout << endl;
 
     for (int i = 0; i < videos.size(); i++)
     {
-        if (videos[i]->getCalificacion() >= rangInf && videos[i]->getCalificacion() <= rangSup && videos[i]->getId() == idSerie && videos[i]->getGenero() == genero)
+        if (videos[i]->getCalificacion() >= rangInf && videos[i]->getCalificacion() <= rangSup && videos[i]->getGenero() == genero)
         {
-            cout << i << ")" << endl;
+            cout << cont << ")" << endl;
             videos[i]->mostrar();
+            cont++;
         }
     }
     return "";
@@ -221,8 +223,16 @@ string videosGenero(vector<Video *> videos, vector<Serie *> series, string gener
 }
 
 // --- 4) Mostrar los episodios de una determinada serie con un rango de calificación determinada --- //
-string mostrarEpisodios(vector<Video *> videos, string idSerie)
+string mostrarEpisodios(vector<Video *> videos, string idSerie, vector<Serie *> series, string genero)
 {
+    for (int i = 0; i < videos.size(); i++)
+    {
+        if (videos[i]->getId() == idSerie)
+        {
+            videos[i]->setGenero(genero);
+        }
+    }
+
     double rangInf, rangSup;
     cout << "Ingrese el rango inferior de la calificación: ";
     cin >> rangInf;
@@ -333,10 +343,12 @@ int main()
                 cout << i + 1 << ")" << endl;
                 series[i]->mostrar();
             }
+            cout << endl;
             cout << "Ingresa el número de la serie: ";
             cin >> num;
             idSerie = series[num - 1]->getId();
-            mostrarEpisodios(videos, idSerie);
+            genero = series[num - 1]->getGenero();
+            mostrarEpisodios(videos, idSerie, series, genero);
 
             break;
         case 5:
