@@ -121,6 +121,22 @@ string leerDatos(vector<Video *> &videos, vector<Serie *> &series)
                 {
                 case 0:
                     idA = valor2;
+                    if (valor2 == "20110125")
+                    {
+                        genero = "Drama";
+                    }
+                    else if (valor2 == "20170120")
+                    {
+                        genero = "Misterio";
+                    }
+                    else if (valor2 == "20160150")
+                    {
+                        genero = "Accion";
+                    }
+                    else
+                    {
+                        genero = "Drama";
+                    }
                     break;
                 case 1:
                     idEp = valor2;
@@ -140,7 +156,7 @@ string leerDatos(vector<Video *> &videos, vector<Serie *> &series)
                 }
                 col++;
             }
-            videos.push_back(new Episodio(idA, idEp, nombre, duracion, calificacion, temporada));
+            videos.push_back(new Episodio(idA, idEp, nombre, duracion, genero, calificacion, temporada));
         }
         episodiosArchivo.close();
     }
@@ -314,8 +330,23 @@ string calificarVideo(vector<Video *> videos)
         cout << i + 1 << ")" << endl;
         videos[i]->mostrar();
     }
-    cout << "Ingrese el número del video que desea calificar: ";
-    cin >> num;
+
+    string numero;
+    bool a = true;
+    while (a)
+    {
+        cout << "Ingrese el número del video que desea calificar: ";
+        cin >> numero;
+        try
+        {
+            num = stoi(numero);
+            a = false;
+        }
+        catch (invalid_argument &e)
+        {
+            cout << "Error. " << e.what() << endl;
+        }
+    }
     cout << "Seleccionó el video: " << videos[num - 1]->getNombre() << ". Con calificación de: " << videos[num - 1]->getCalificacion() << endl;
     cout << "Ingrese la califcación nueva: ";
     cin >> nuevaCalificacion;

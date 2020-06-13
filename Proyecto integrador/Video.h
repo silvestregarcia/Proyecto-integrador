@@ -8,7 +8,6 @@ using namespace std;
 class Video
 {
 protected:
-    string tipo;
     string id;
     string nombre;
     string duracion;
@@ -21,7 +20,6 @@ public:
 
     void setCalificacion(double calificacion);
     void setGenero(string genero);
-    virtual string getTipo();
     virtual string getId();
     virtual string getNombre();
     virtual string getDuracion();
@@ -63,10 +61,6 @@ void Video::setGenero(string genero)
 string Video::getId()
 {
     return id;
-}
-string Video::getTipo()
-{
-    return tipo;
 }
 string Video::getNombre()
 {

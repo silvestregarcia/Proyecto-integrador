@@ -16,7 +16,7 @@ private:
 
 public:
     Episodio();
-    Episodio(string id, string idEp, string nombre, string duracion, double calificacion, int temporada);
+    Episodio(string id, string idEp, string nombre, string duracion, string genero, double calificacion, int temporada);
 
     void setGenero(string genero);
     void setCalificacion(double calificacion);
@@ -29,11 +29,12 @@ Episodio::Episodio()
     id = "";
     nombre = "";
     duracion = "";
+    genero = "";
     temporada = 0;
     calificacion = 0;
 }
 //----Constructor---- //
-Episodio::Episodio(string id, string idEp, string nombre, string duracion, double calificacion, int temporada) : Video(id, nombre, duracion, genero, calificacion)
+Episodio::Episodio(string id, string idEp, string nombre, string duracion, string genero, double calificacion, int temporada) : Video(id, nombre, duracion, genero, calificacion)
 {
     this->id = id;
     this->idEp = idEp;
@@ -43,6 +44,7 @@ Episodio::Episodio(string id, string idEp, string nombre, string duracion, doubl
     this->calificacion = calificacion;
     this->temporada = temporada;
 }
+
 // ----- Metodos ----- //
 // ---- Set ---- //
 void Episodio::setCalificacion(double calificacion)
