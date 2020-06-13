@@ -59,5 +59,16 @@ void Pelicula::mostrar()
 }
 
 // ---- Operador ---- //
+ostream &operator<<(ostream &os, Video *video)
+{
+    char c[256];
+    int n;
+    os << "Id: " << video->id << endl;
+    os << "Nombre: " << video->nombre << endl;
+    os << "Género: " << video->genero << endl;
+    os << "Duración: " << video->duracion << endl;
+    os << "Calificacion: " << video->calificacion << endl;
 
+    return os;
+}
 #endif

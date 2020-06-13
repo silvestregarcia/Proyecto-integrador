@@ -313,7 +313,7 @@ string califPeliculas(vector<Video *> videos, double rangInf, double rangSup)
         if (videos[i]->getCalificacion() >= rangInf && videos[i]->getCalificacion() <= rangSup)
         {
             cout << cont << ")" << endl;
-            videos[i]->mostrar();
+            cout << videos[i];
             cont++;
         }
     }
@@ -424,7 +424,7 @@ int main()
                     for (int i = 0; i < series.size(); i++)
                     {
                         cout << i + 1 << ")" << endl;
-                        series[i]->mostrar();
+                        cout << series[i];
                     }
                     cout << endl;
                     a = true;

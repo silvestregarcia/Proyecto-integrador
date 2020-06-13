@@ -29,6 +29,7 @@ public:
     bool operator>=(double rangInf);
     bool operator<=(double rangSup);
 
+    friend ostream &operator<<(ostream &os, Video *video);
     virtual void mostrar();
 };
 //----Constructor----//
